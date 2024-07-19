@@ -20,8 +20,8 @@ public class CarController {
     private final CarService carService;
 
     @PostMapping
-    public ResponseEntity<Car> createCar(@RequestBody CarRequestDto carRequestDto,
-                                         HttpServletResponse response) {
+    public ResponseEntity<CarResponseDto> createCar(@RequestBody CarRequestDto carRequestDto,
+                                                    HttpServletResponse response) {
         CarResponseDto savedCar = carService.save(carRequestDto);
         String location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -45,22 +45,20 @@ public class CarController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CarResponseDto> updateEntireCar(@PathVariable Long id,
-                                                          @RequestBody CarRequestDto carRequestDto) {
+    public void updateEntireCar(@PathVariable Long id,
+                                @RequestBody CarRequestDto carRequestDto) {
         carService.updateById(id, carRequestDto);
-        return ResponseEntity.ok().build();
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<CarResponseDto> updateCar(@PathVariable Long id,
-                                            @RequestBody CarRequestDto carRequestDto) {
+    public void updateCar(@PathVariable Long id,
+                          @RequestBody CarRequestDto carRequestDto) {
         carService.updateById(id, carRequestDto);
-        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<CarResponseDto> deleteCar(@PathVariable Long id) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteCar(@PathVariable Long id) {
         carService.deleteById(id);
-        return ResponseEntity.ok().build();
     }
 }

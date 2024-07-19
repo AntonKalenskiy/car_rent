@@ -1,14 +1,22 @@
 package com.mycarrentals.car_rent.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import lombok.experimental.NonFinal;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "cars")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+@SQLDelete(sql = "UPDATE cars SET is_deleted = true WHERE id=?")
+@SQLRestriction("is_deleted=false")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,13 +30,8 @@ public class Car {
     private CarType type;
     private int inventory;
     private BigDecimal dailyFee;
+    @ToString.Exclude
     private boolean isDeleted;
-
-    public enum CarType{
-        SEDAN, SUV, HATCHBACK, ESTATE;
-    }
-
-    public Car() {}
 
     public Car(String model, String brand, CarType type, int inventory, BigDecimal dailyFee, boolean isDeleted) {
         this.model = model;
@@ -37,5 +40,9 @@ public class Car {
         this.inventory = inventory;
         this.dailyFee = dailyFee;
         this.isDeleted = isDeleted;
+    }
+
+    public enum CarType{
+        SEDAN, SUV, HATCHBACK, ESTATE;
     }
 }
