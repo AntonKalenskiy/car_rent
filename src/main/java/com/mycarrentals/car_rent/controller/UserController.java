@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.mycarrentals.car_rent.model.User;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/users")
