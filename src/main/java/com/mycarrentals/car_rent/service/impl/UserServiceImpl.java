@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
         }
         User user = userMapper.toModel(requestDto);
         user.setRole(User.Role.CUSTOMER);
+//        todo: encrypt by BCrypt library and save into DB. Will be enable when add spring security
         user.setPassword(requestDto.password());
         userRepository.save(user);
     }

@@ -5,6 +5,7 @@ import com.mycarrentals.car_rent.dto.CarResponseDto;
 import com.mycarrentals.car_rent.model.Car;
 import com.mycarrentals.car_rent.service.CarService;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class CarController {
     private final CarService carService;
 
     @PostMapping
-    public ResponseEntity<CarResponseDto> createCar(@RequestBody CarRequestDto carRequestDto,
+    public ResponseEntity<CarResponseDto> createCar(@RequestBody @Valid CarRequestDto carRequestDto,
                                                     HttpServletResponse response) {
         CarResponseDto savedCar = carService.save(carRequestDto);
         String location = ServletUriComponentsBuilder
@@ -46,13 +47,13 @@ public class CarController {
 
     @PutMapping("/{id}")
     public void updateEntireCar(@PathVariable Long id,
-                                @RequestBody CarRequestDto carRequestDto) {
+                                @RequestBody @Valid CarRequestDto carRequestDto) {
         carService.updateById(id, carRequestDto);
     }
 
     @PatchMapping("/{id}")
     public void updateCar(@PathVariable Long id,
-                          @RequestBody CarRequestDto carRequestDto) {
+                          @RequestBody @Valid CarRequestDto carRequestDto) {
         carService.updateById(id, carRequestDto);
     }
 

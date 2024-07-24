@@ -2,6 +2,7 @@ package com.mycarrentals.car_rent.controller;
 
 import com.mycarrentals.car_rent.dto.UserRoleRequestDto;
 import com.mycarrentals.car_rent.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class UserController {
 
     @PutMapping("/{id}/role")
     public void updateUserRole(@PathVariable Long id,
-                               @RequestBody UserRoleRequestDto role) {
+                               @RequestBody @Valid UserRoleRequestDto role) {
         userService.updateById(id, role);
     }
 

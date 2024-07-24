@@ -1,4 +1,8 @@
 package com.mycarrentals.car_rent.dto;
 
-public record UserRoleRequestDto(String role) {
+import jakarta.validation.constraints.NotBlank;
+
+public record UserRoleRequestDto(
+        @NotBlank(message = "Role can not be blank or null")
+        String role) {
 }
