@@ -1,4 +1,4 @@
-package com.mycarrentals.car_rent.dto;
+package com.mycarrentals.car_rent.dto.request;
 
 import com.mycarrentals.car_rent.validation.Email;
 import com.mycarrentals.car_rent.validation.PasswordMatches;

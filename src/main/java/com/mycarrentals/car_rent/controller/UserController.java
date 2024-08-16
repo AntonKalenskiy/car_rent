@@ -1,6 +1,6 @@
 package com.mycarrentals.car_rent.controller;
 
-import com.mycarrentals.car_rent.dto.UserRoleRequestDto;
+import com.mycarrentals.car_rent.dto.request.UserRoleRequestDto;
 import com.mycarrentals.car_rent.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -2,19 +2,14 @@ package com.mycarrentals.car_rent.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.NonFinal;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
-
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "cars")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
 @SQLDelete(sql = "UPDATE cars SET is_deleted = true WHERE id=?")
 @SQLRestriction("is_deleted=false")
 public class Car {

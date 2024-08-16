@@ -1,6 +1,6 @@
 package com.mycarrentals.car_rent.validation;
 
-import com.mycarrentals.car_rent.dto.UserRegistrationRequestDto;
+import com.mycarrentals.car_rent.dto.request.UserRegistrationRequestDto;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

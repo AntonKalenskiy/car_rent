@@ -1,6 +1,6 @@
 package com.mycarrentals.car_rent.controller;
 
-import com.mycarrentals.car_rent.dto.UserRegistrationRequestDto;
+import com.mycarrentals.car_rent.dto.request.UserRegistrationRequestDto;
 import com.mycarrentals.car_rent.exception.RegistrationException;
 import com.mycarrentals.car_rent.service.UserService;
 import jakarta.validation.Valid;

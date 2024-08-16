@@ -1,8 +1,7 @@
 package com.mycarrentals.car_rent.controller;
 
-import com.mycarrentals.car_rent.dto.CarRequestDto;
-import com.mycarrentals.car_rent.dto.CarResponseDto;
-import com.mycarrentals.car_rent.model.Car;
+import com.mycarrentals.car_rent.dto.request.CarRequestDto;
+import com.mycarrentals.car_rent.dto.response.CarResponseDto;
 import com.mycarrentals.car_rent.service.CarService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;

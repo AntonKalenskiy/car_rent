@@ -1,9 +1,9 @@
-package com.mycarrentals.car_rent.dto;
+package com.mycarrentals.car_rent.dto.request;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+
 import java.math.BigDecimal;
 
 public record CarRequestDto(

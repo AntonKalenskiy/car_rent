@@ -1,7 +1,7 @@
 package com.mycarrentals.car_rent.service.impl;
 
-import com.mycarrentals.car_rent.dto.CarRequestDto;
-import com.mycarrentals.car_rent.dto.CarResponseDto;
+import com.mycarrentals.car_rent.dto.request.CarRequestDto;
+import com.mycarrentals.car_rent.dto.response.CarResponseDto;
 import com.mycarrentals.car_rent.dto.mapper.CarMapper;
 import com.mycarrentals.car_rent.model.Car;
 import com.mycarrentals.car_rent.repository.CarRepository;

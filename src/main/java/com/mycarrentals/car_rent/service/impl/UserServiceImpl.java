@@ -1,8 +1,8 @@
 package com.mycarrentals.car_rent.service.impl;
 
-import com.mycarrentals.car_rent.dto.UserRegistrationRequestDto;
-import com.mycarrentals.car_rent.dto.UserResponseDto;
-import com.mycarrentals.car_rent.dto.UserRoleRequestDto;
+import com.mycarrentals.car_rent.dto.request.UserRegistrationRequestDto;
+import com.mycarrentals.car_rent.dto.response.UserResponseDto;
+import com.mycarrentals.car_rent.dto.request.UserRoleRequestDto;
 import com.mycarrentals.car_rent.dto.mapper.UserMapper;
 import com.mycarrentals.car_rent.exception.RegistrationException;
 import com.mycarrentals.car_rent.exception.UserNotFoundException;

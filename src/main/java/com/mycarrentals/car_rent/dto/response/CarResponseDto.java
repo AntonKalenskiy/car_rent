@@ -1,4 +1,4 @@
-package com.mycarrentals.car_rent.dto;
+package com.mycarrentals.car_rent.dto.response;
 
 import java.math.BigDecimal;
 
