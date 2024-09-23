@@ -1,6 +1,7 @@
 package com.mycarrentals.car_rent.service.impl;
 
 import com.mycarrentals.car_rent.dto.request.CarRequestDto;
+import com.mycarrentals.car_rent.dto.request.CarThRequestDto;
 import com.mycarrentals.car_rent.dto.response.CarResponseDto;
 import com.mycarrentals.car_rent.dto.mapper.CarMapper;
 import com.mycarrentals.car_rent.model.Car;
@@ -8,6 +9,7 @@ import com.mycarrentals.car_rent.repository.CarRepository;
 import com.mycarrentals.car_rent.service.CarService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,8 +28,22 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public CarResponseDto saveCarTh(CarThRequestDto carThRequestDto) {
+        Car car = carMapper.toModel(carThRequestDto);
+        Car savedCar = carRepository.save(car);
+        return carMapper.toDto(savedCar);
+    }
+
+    @Override
     public List<CarResponseDto> findAllCars() {
         return carRepository.findAll().stream()
+                .map(carMapper::toDto)
+                .toList();
+    }
+
+    @Override
+    public List<CarResponseDto> findAllCars(Pageable pageable) {
+        return carRepository.findAll(pageable).stream()
                 .map(carMapper::toDto)
                 .toList();
     }

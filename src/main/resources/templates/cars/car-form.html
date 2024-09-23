@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Save car</title>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Car Directory</h3>
+        <hr>
+
+        <p class="h4 mb-4">Save Car</p>
+
+        <form action="#" th:action="@{/cars-th/save}"
+              th:object="${car}"
+              method="POST">
+
+            <input type="hidden" th:field="*{id}" />
+
+            <small th:if="${#fields.hasErrors('model')}" th:errors="*{model}" class="text-danger"></small>
+            <input type="text" th:field="*{model}" class="form-control mb-4 w-25" placeholder="Model"/>
+
+            <small th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}" class="text-danger"></small>
+            <input type="text" th:field="*{brand}" class="form-control mb-3 w-25" placeholder="Brand"/>
+
+            <small class="form-text text-muted">Please, choose Car Type</small>
+            <small th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="text-danger"></small>
+            <select th:field="*{type}" class="form-control mb-4 w-25">
+                <option th:each="tempType : ${carTypes}" th:value="${tempType}" th:text="${tempType}"></option>
+            </select>
+
+            <small th:if="${#fields.hasErrors('inventory')}" th:errors="*{inventory}" class="text-danger"></small>
+            <input type="text" th:field="*{inventory}" class="form-control mb-4 w-25" placeholder="Inventory"/>
+
+            <small th:if="${#fields.hasErrors('dailyFee')}" th:errors="*{dailyFee}" class="text-danger"></small>
+            <input type="text" th:field="*{dailyFee}" class="form-control mb-4 w-25" placeholder="Daily Fee"/>
+
+            <button type="submit" class="btn btn-info col-2">Save</button>
+
+        </form>
+
+        <hr>
+        <a th:href="@{/cars-th/list}">Back to Cars List</a>
+    </div>
+
+</body>
+
+</html>

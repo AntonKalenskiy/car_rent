@@ -1,6 +1,7 @@
 package com.mycarrentals.car_rent.dto.mapper;
 
 import com.mycarrentals.car_rent.config.MapperConfig;
+import com.mycarrentals.car_rent.dto.request.CarThRequestDto;
 import com.mycarrentals.car_rent.dto.response.CarInfoDto;
 import com.mycarrentals.car_rent.dto.request.CarRequestDto;
 import com.mycarrentals.car_rent.dto.response.CarResponseDto;
@@ -44,4 +45,8 @@ public interface CarMapper {
 
 
     CarInfoDto toDtoDetailedCarInfo(Car car);
+
+//    @Mapping(target = "type", qualifiedByName = "stringToCarType")
+    Car toModel(CarThRequestDto carThRequestDto);
+
 }
