@@ -28,6 +28,13 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(IllegalArgumentException ex) {
+        Map<String, Object> body = collectResponse(ex);
+        body.put("status", HttpStatus.BAD_REQUEST.toString());
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleEntityNotFoundException(EntityNotFoundException ex) {
         Map<String, Object> body = collectResponse(ex);
